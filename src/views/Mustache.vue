@@ -3,6 +3,12 @@ const message = "There 1";
 const messageObj = { name: "Kim", age: 20 };
 console.log(messageObj);
 console.log(messageObj.toString);
+const pageId = 'history';
+let loading = false; // > 활성화, 작성가능, 클릭가능
+// let loading = true; > 비활성화 상태, 작성불가, 클릭불가
+const prant = "fruits";
+const child = "item";
+const fruits = ['사과', '바나나', '딸기', '배'];
 </script>
 
 <template>
@@ -15,7 +21,23 @@ console.log(messageObj.toString);
     -->
     <div>Hello, <span v-text="message"></span></div>
     <div>Hello, messageObj <span v-text="messageObj"></span></div>
-    <div>Hello, messageObj.kim: <span v-text="messageObj.name"></span></div>
+    <div>Hello, messageObj.name: <span v-text="messageObj.name"></span></div>
+    <div v-bind:id="pageId">페이지 아이디 1</div>
+    <div :id="pageId">페이지 아이디 div 2</div> 
+    <!-- : 앞에 생략가능 -->
+    
+    <input type="text" placeholder="아이디" :readonly="loading" />
+    <input type="password" placeholder="비밀번호" :readonly="loading" />
+    <button :disabled="loading">로그인</button>
+
+    <ul :class="parent">
+        <li :key="idx" v-for="(item, idx) in fruits" :class="child">
+            {{ item }}
+        </li>
+    </ul>
+
 </template>
 
-<style scoped></style>
+<style scoped>
+#history {color: red;}
+</style>
