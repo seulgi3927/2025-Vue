@@ -1,20 +1,23 @@
 <script setup>
 import FrontWheel from '@/components/FrontWheel.vue';
 import RearWheel from '@/components/RearWheel.vue';
+import { useCounterStore } from '@/stores/counter.js';
+const counterstore = useCounterStore();
 
 </script>
 
 <template>
-    <h1>Component.vue</h1>
+    <h1>Hello Vue!</h1>
+    <h1>Hello Vue!</h1>
+    <button @click="counterstore.increment">회전</button>
+    <FrontWheel></FrontWheel>
+    <RearWheel></RearWheel>
+
         <div class="car1">
             <FrontWheel />
             <FrontWheel />        
         </div>
 
-        <div class="car2">
-            <RearWheel />
-            <RearWheel />
-        </div>
 </template>
 
 <style scoped>
